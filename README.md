@@ -1,10 +1,18 @@
 # vote
+This app to voting application, which allows voters to cast their votes over the mobile application.
+All data Stor on FireStore and vote time. admin can see user data and varify access to vote.
+
+
 This project is powered by Flutter **>=2.8.0** and Dart **>=2.18.0 <3.0.0**.
 
+## User record
+https://github.com/mohamedaa123654/vote/assets/33372890/7da4c6c0-632c-43a0-8e91-1d9de2ee1847
 
 
-#Screen Record
-https://github.com/mohamedaa123654/vote/assets/33372890/83141a11-fa94-4b62-bb55-9925b7501f4a
+
+## Admin record
+https://github.com/mohamedaa123654/vote/assets/33372890/61a08f60-79d7-4154-b39a-25684539959f
+
 
 
 
@@ -36,8 +44,8 @@ The main packages used in the project:
 |---|---|
 |*main.dart*|The entry point to the application. Here is the initialization of DioHelper, CacheHelper and registration of common Blocs and Sizer that are used throughout the application.|
 |*application/*|constants, route maneger, network info and Cache helper|
-|*Domain/*|constants, route maneger, network info and Cache helper|
-|*data/*|Model classes used in the application and data providers (local and remote) network(requests, responses).|
+|*Domain/*|repository, and usecases|
+|*data/*|Model classes used in the application and data providers|
 |*presentation/*|All UI elements used in the application.|
 |---|---|
 |*presentation/Controller/*|Contain Get Time controller.|
