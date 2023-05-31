@@ -5,10 +5,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vote/app/cache_helper.dart';
 import 'package:vote/app/routes_manager.dart';
-import 'package:vote/componants/constant.dart';
-import 'package:vote/componants/custom_button.dart';
-import 'package:vote/componants/custom_text_button.dart';
-import 'package:vote/componants/custom_text_feild.dart';
+import 'package:vote/app/constant.dart';
+import 'package:vote/presentation/widgets/custom_button.dart';
+import 'package:vote/presentation/widgets/custom_text_button.dart';
+import 'package:vote/presentation/widgets/custom_text_feild.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
@@ -38,7 +38,7 @@ class _LoginState extends State<Login> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(height: 100, child: Image.asset(kLogo)),
+                SizedBox(height: 100, child: Image.asset(kLogo)),
                 const Text(
                   'We Chat',
                   textAlign: TextAlign.center,
@@ -116,7 +116,7 @@ class _LoginState extends State<Login> {
                             // print('Wrong password provided for that user.');
                           }
                         } catch (ex) {
-                          print(ex);
+                          
                           ScaffoldMessenger.of(context)
                               .showSnackBar(const SnackBar(
                             content: Text('There was an error'),
@@ -148,7 +148,7 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
               ],
@@ -180,7 +180,7 @@ class _LoginState extends State<Login> {
               width: 100.w,
               child: Padding(
                 padding: EdgeInsets.all(2.w),
-                child: Text(
+                child: const Text(
                   'you not an admin',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),

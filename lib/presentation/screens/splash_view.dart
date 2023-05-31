@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vote/app/cache_helper.dart';
+import 'package:vote/app/constant.dart';
 import 'package:vote/app/routes_manager.dart';
-import 'package:vote/pages/finish_screen.dart';
-import '../componants/constant.dart';
+import 'package:vote/presentation/screens/finish_screen.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);

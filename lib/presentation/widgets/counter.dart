@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:vote/componants/constant.dart';
-import 'package:vote/pages/controller/date_time_controller.dart';
+import 'package:vote/app/constant.dart';
+import 'package:vote/presentation/controller/date_time_controller.dart';
 
 class CounterDown extends StatelessWidget {
   CounterDown({

@@ -17,7 +17,7 @@ class VoteTimeModel {
 
   factory VoteTimeModel.fromJson(jsonData) {
     return VoteTimeModel(
-      jsonData['datetime'],
+      jsonData['voteTime'],
     );
   }
 }

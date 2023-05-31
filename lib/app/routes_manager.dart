@@ -1,12 +1,11 @@
 import 'package:get/get.dart';
-import 'package:vote/pages/admin_screen.dart';
-import 'package:vote/pages/controller/date_time_binding.dart';
-import 'package:vote/pages/controller/date_time_controller.dart';
-import 'package:vote/pages/login.dart';
-import 'package:vote/pages/main_screen.dart';
-import 'package:vote/pages/register.dart';
-import 'package:vote/pages/splash_view.dart';
-import 'package:vote/pages/varify_screen.dart';
+import 'package:vote/presentation/screens/admin_screen.dart';
+import 'package:vote/presentation/controller/date_time_binding.dart';
+import 'package:vote/presentation/screens/login.dart';
+import 'package:vote/presentation/screens/main_screen.dart';
+import 'package:vote/presentation/screens/register.dart';
+import 'package:vote/presentation/screens/splash_view.dart';
+import 'package:vote/presentation/screens/varify_screen.dart';
 
 class Routes {
   static const String splashRoute = "/";

@@ -10,10 +10,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vote/app/cache_helper.dart';
 import 'package:vote/app/routes_manager.dart';
-import 'package:vote/componants/constant.dart';
-import 'package:vote/componants/custom_button.dart';
-import 'package:vote/componants/custom_text_button.dart';
-import 'package:vote/componants/custom_text_feild.dart';
+import 'package:vote/app/constant.dart';
+import 'package:vote/presentation/widgets/custom_button.dart';
+import 'package:vote/presentation/widgets/custom_text_button.dart';
+import 'package:vote/presentation/widgets/custom_text_feild.dart';
 
 class Register extends StatefulWidget {
   Register({Key? key}) : super(key: key);
@@ -175,10 +175,8 @@ class _RegisterState extends State<Register> {
                             'user': email,
                             'image': imageUrl,
                             'verification': false,
-
                           });
-      Get.offAllNamed(Routes.varifyRoute);
-
+                          Get.offAllNamed(Routes.varifyRoute);
                         }
                       }
                     } else {
@@ -219,8 +217,7 @@ class _RegisterState extends State<Register> {
                     Custom_Text_Button(
                       text: 'Login',
                       onTap: () {
-                                               Get.offAllNamed(Routes.loginRoute);
-
+                        Get.offAllNamed(Routes.loginRoute);
                       },
                     )
                   ],
@@ -240,7 +237,6 @@ class _RegisterState extends State<Register> {
           .createUserWithEmailAndPassword(email: email!, password: password!);
       CacheHelper.saveDataSharedPreference(key: 'isLogined', value: true);
       CacheHelper.saveDataSharedPreference(key: 'email', value: email);
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(

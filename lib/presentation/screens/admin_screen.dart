@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,19 +6,18 @@ import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vote/app/cache_helper.dart';
 import 'package:vote/app/routes_manager.dart';
-import 'package:vote/componants/constant.dart';
+import 'package:vote/app/constant.dart';
 import 'package:vote/data/models/user_model.dart';
 
 class AdminScreen extends StatelessWidget {
   AdminScreen({super.key});
 
-  ScrollController _controllerAnimation = new ScrollController();
+  ScrollController _controllerAnimation =  ScrollController();
   CollectionReference users =
       FirebaseFirestore.instance.collection(kUsersCollections);
 
   @override
   Widget build(BuildContext context) {
-    var email = ModalRoute.of(context)!.settings.arguments.toString();
     return StreamBuilder<QuerySnapshot>(
         stream: users.snapshots(),
         builder: (context, snapshot) {
@@ -25,7 +25,7 @@ class AdminScreen extends StatelessWidget {
             List<User> messagesList = [];
             for (int i = 0; i < snapshot.data!.docs.length; i++) {
               messagesList.add(User.fromJson(snapshot.data!.docs[i]));
-              print(messagesList[i].image);
+              
             }
 
             return Scaffold(
@@ -50,7 +50,7 @@ class AdminScreen extends StatelessWidget {
                   ],
                 ),
                 leading: IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back,color:Colors.white),
                     onPressed: () {
                       Get.offAllNamed(Routes.loginRoute);
                       CacheHelper.saveDataSharedPreference(
@@ -102,7 +102,7 @@ class AdminScreen extends StatelessWidget {
                                         children: [
                                           Text(
                                             messagesList[index].name,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold,
                                                 color: kPrimaryColor),
@@ -112,7 +112,7 @@ class AdminScreen extends StatelessWidget {
                                           ),
                                           Text(
                                             messagesList[index].email,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 16,
                                                 // fontWeight: FontWeight.bold,
                                                 color: kPrimaryColor),
@@ -120,7 +120,7 @@ class AdminScreen extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     IconButton(
                                         onPressed: () {
                                           users
@@ -224,16 +224,29 @@ class _MyFormState extends State<MyForm> {
             onPressed: () {
               if (selectedTime != null && selectedDate != null) {
                 // Form is valid, perform form submission
-                FirebaseFirestore.instance
+                AwesomeDialog(
+                                context: context,
+                                dialogType: DialogType.question,
+                                animType: AnimType.bottomSlide,
+                                title:
+                                    'You Update Vote Time} ',
+                                desc: 'Are You Sure? ',
+                                btnCancelOnPress: () {},
+                                btnOkOnPress: () {
+                                  FirebaseFirestore.instance
                     .collection('voteTime')
                     .doc('voteTime')
                     .set({
                   'voteTime':
                       '${DateFormat("yyyy-MM-ddT").format(selectedDate!)}${selectedTime!.hour}:${selectedTime!.minute}'
                 });
-              }
+            
+                                },
+                              ).show();
+                           
+                  }
             },
-            child: Text('Submit'),
+            child: const Text('Submit'),
           ),
         ],
       ),

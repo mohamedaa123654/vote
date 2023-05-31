@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vote/app/cache_helper.dart';
 import 'package:vote/app/routes_manager.dart';
-import 'package:vote/componants/constant.dart';
+import 'package:vote/app/constant.dart';
 
 class FinishScreen extends StatelessWidget {
   const FinishScreen({super.key});
@@ -32,12 +32,12 @@ class FinishScreen extends StatelessWidget {
             ],
           ),
           leading: IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Get.offAllNamed(Routes.loginRoute);
-                      CacheHelper.saveDataSharedPreference(
-                          key: 'isLogined', value: false);
-                    }),
+              icon: const Icon(Icons.arrow_back,color:Colors.white),
+              onPressed: () {
+                Get.offAllNamed(Routes.loginRoute);
+                CacheHelper.saveDataSharedPreference(
+                    key: 'isLogined', value: false);
+              }),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),

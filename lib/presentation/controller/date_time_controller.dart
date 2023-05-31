@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:vote/app/constant.dart';
 import 'package:vote/app/network_info.dart';
 import 'package:vote/data/datasource/remote/remote_datasource.dart';
 import 'package:vote/data/models/now_time.dart';
@@ -19,16 +20,13 @@ class DateTimeController extends GetxController {
 
   @override
   void onInit() async {
-    // if (await networkInfo.isConnected) {
-    //   getPrayTime(AppConstants.lat, AppConstants.long);
-
-    //   isConnected.value = true;
-    // } else {
-    //   isConnected.value = false;
-    // }
+    if (await networkInfo.isConnected) {
+      isConnected.value = true;
+    } else {
+      isConnected.value = false;
+    }
     await getNowTime();
     await getVoteTime();
-    // startCountdown();
     super.onInit();
   }
 
@@ -44,10 +42,7 @@ class DateTimeController extends GetxController {
 
       if (model != null) {
         nowTimeModel = model;
-        timeNow =
-            DateFormat("yyyy-MM-ddTHH:mm").parse("${nowTimeModel!.datetime!}");
-        print('///////// getNowTime ${nowTimeModel!.datetime.toString()}');
-        print('///////// getNowTime ${timeNow}');
+        timeNow = DateFormat("yyyy-MM-ddTHH:mm").parse(nowTimeModel!.datetime!);
       }
     } catch (e) {
       print(e);
@@ -70,14 +65,13 @@ class DateTimeController extends GetxController {
         Map<String, dynamic> data =
             documentSnapshot.data() as Map<String, dynamic>;
         // Access the document fields using data['field']
-        if (data['dateTime'] != '') {
+        if (data['voteTime'] != '') {
           isReminded.value = true;
-          String fieldValue = data['dateTime'] as String;
-          voteTimeDate = DateFormat("yyyy-MM-ddTHH:mm").parse("${fieldValue}");
+          String fieldValue = data['voteTime'] as String;
+          voteTimeDate = DateFormat("yyyy-MM-ddTHH:mm").parse("$fieldValue");
 
           await startCountdown();
         }
-        print(data);
       } else {
         print('Document does not exist');
       }
@@ -101,14 +95,13 @@ class DateTimeController extends GetxController {
 
   startCountdown() async {
     remainingSeconds.value = voteTimeDate!.difference(timeNow!).inSeconds;
-    print('remainingSeconds.value${remainingSeconds.value}');
-
     timeBetween = voteTimeDate!.difference(timeNow!).inSeconds;
     endTime.value = voteTimeDate!.millisecondsSinceEpoch + 1000 * 30;
     timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       if (remainingSeconds.value > 1) {
         remainingSeconds.value--;
         percentage.value = 1 - (remainingSeconds.value / timeBetween);
+        isLoadTime.value = false;
       } else if (remainingSeconds.value == 1) {
         timer.cancel();
       }

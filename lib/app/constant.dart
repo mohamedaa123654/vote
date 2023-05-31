@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const kPrimaryColor = Color(0xff2B475E);
 const kLogo = 'assets/logo.png';
@@ -11,3 +12,4 @@ const kCreatedAt = 'createdAt';
 String registerId = 'Register';
 String loginId = 'Login';
 String chatPageId = 'ChatePage';
+RxBool isLoadTime = true.obs;

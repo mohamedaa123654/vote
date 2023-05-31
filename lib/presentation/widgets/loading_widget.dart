@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vote/componants/constant.dart';
+import 'package:vote/app/constant.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({
@@ -10,7 +10,11 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
-      body: Center(child:CircularProgressIndicator(color: kPrimaryColor,strokeWidth: 20,)),
+      body: Center(
+          child: CircularProgressIndicator(
+        color: kPrimaryColor,
+        strokeWidth: 20,
+      )),
     );
   }
 }

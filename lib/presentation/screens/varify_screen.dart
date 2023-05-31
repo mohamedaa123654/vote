@@ -1,14 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vote/app/cache_helper.dart';
-import 'package:vote/app/routes_manager.dart';
-import 'package:vote/componants/constant.dart';
-import 'package:vote/componants/loading_widget.dart';
+import 'package:vote/app/constant.dart';
+import 'package:vote/presentation/widgets/loading_widget.dart';
 import 'package:vote/data/models/user_model.dart';
-import 'package:vote/pages/main_Screen.dart';
+import 'package:vote/presentation/screens/main_screen.dart';
 
 class VerifyScreen extends StatelessWidget {
   ScrollController _controllerAnimation = ScrollController();
