@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:vote/app/constant.dart';
 import 'package:vote/app/network_info.dart';
 import 'package:vote/data/datasource/remote/remote_datasource.dart';
 import 'package:vote/data/models/now_time.dart';
@@ -80,9 +79,6 @@ class DateTimeController extends GetxController {
     }
   }
 
-  List<String>? nextPrayer;
-  List<List<String>> allPrayers = [];
-  List<String>? previousPrayer;
   DateTime? nextPrayerTime;
   DateTime? previousPrayerTime;
   double? counter;
@@ -101,8 +97,8 @@ class DateTimeController extends GetxController {
       if (remainingSeconds.value > 1) {
         remainingSeconds.value--;
         percentage.value = 1 - (remainingSeconds.value / timeBetween);
-        isLoadTime.value = false;
       } else if (remainingSeconds.value == 1) {
+        percentage.value = 0.0;
         timer.cancel();
       }
     });

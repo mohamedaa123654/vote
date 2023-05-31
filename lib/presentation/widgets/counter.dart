@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'package:vote/app/constant.dart';
 import 'package:vote/presentation/controller/date_time_controller.dart';
 
-class CounterDown extends StatelessWidget {
+class CounterDown extends StatefulWidget {
   CounterDown({
     super.key,
     required this.controller,
@@ -13,6 +13,12 @@ class CounterDown extends StatelessWidget {
   });
 
   final DateTimeController controller;
+
+  @override
+  State<CounterDown> createState() => _CounterDownState();
+}
+
+class _CounterDownState extends State<CounterDown> {
   // void Function()? onEnd;
   @override
   Widget build(BuildContext context) {
@@ -20,10 +26,13 @@ class CounterDown extends StatelessWidget {
       return Directionality(
         textDirection: TextDirection.ltr,
         child: CountdownTimer(
-          endTime: controller.endTime.value,
+          endTime: widget.controller.endTime.value,
           onEnd: () {
             // onEnd;
-            print('end');
+            setState(() {
+              // widget.controller.percentage.value = 0.0;
+            });
+            
           },
           textStyle: TextStyle(
               // fontWeight: FontWeight.bold,

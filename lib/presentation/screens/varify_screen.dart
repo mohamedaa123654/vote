@@ -20,7 +20,6 @@ class VerifyScreen extends StatelessWidget {
       stream: itemRef.snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          print('//////${snapshot.data}');
           User userData = User.fromJson(snapshot.data);
 
           return Scaffold(
