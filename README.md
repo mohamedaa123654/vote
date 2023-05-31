@@ -4,12 +4,8 @@ This project is powered by Flutter **>=2.8.0** and Dart **>=2.18.0 <3.0.0**.
 
 
 #Screen Record
+VID_20230531_210311.mp4
 
-
-
-
-
-https://raw.githubusercontent.com/mohamedaa123654/vote/master/VID_20230531_210311.mp4?token=GHSAT0AAAAAACC4LAAQESQTYCAYV7L7XTWOZDXSKWQ
 
 
 #ScreenShot
