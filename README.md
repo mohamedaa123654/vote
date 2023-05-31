@@ -4,15 +4,9 @@ This project is powered by Flutter **>=2.8.0** and Dart **>=2.18.0 <3.0.0**.
 
 
 #Screen Record
-VID_20230531_210311.mp4
+https://github.com/mohamedaa123654/vote/assets/33372890/83141a11-fa94-4b62-bb55-9925b7501f4a
 
 
-
-#ScreenShot
-
-
-
-<img  alt="Coding" height="400" src="https://user-images.githubusercontent.com/33372890/232257819-2cbb6795-08d7-4436-8867-2b208e72d7ae.jpeg"> <img  alt="Coding" height="400" src="https://user-images.githubusercontent.com/33372890/232257831-c9b038b3-17da-4b0f-b38c-287d72f468f4.jpeg"> <img  alt="Coding" height="400" src="https://user-images.githubusercontent.com/33372890/232257836-a29aa6ae-2e98-486f-9b31-671aa8d0b175.jpeg">
 
 The main packages used in the project:
 ```yaml
